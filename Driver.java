@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.ArrayList;
 public class Driver{
 	public static void main(String[] args){
 		boolean run = false;
@@ -20,13 +21,14 @@ public class Driver{
 		}else{
 			Adventurer player = new Adventurer("default");
 		}
-
+		arrayList<String> ppl = new ArrayList<String>();
+		ppl.add(player);
 
 
 		while(true){
 			if(inp.nextLine().equals("exit")){return;}
 			clearScreen();
-			System.out.println(player.getName(); + 
+			System.out.println(player.getName() + 
 					" ######## " + 
 					player.getHP + 
 					" / " + 
@@ -50,5 +52,8 @@ public class Driver{
 	public static void clearScreen() {  
 		System.out.print("\033[H\033[2J");  
 		System.out.flush();  
+	}
+	public static ArrayList<String> getppl(){
+		return ppl;
 	}
 }
