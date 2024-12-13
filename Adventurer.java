@@ -1,24 +1,33 @@
 // Collaborators:
 
-import java.util.Random;
-
 public abstract class Adventurer{
   private String name;
   private int HP,maxHP;
-
+  private int damageAmount;
+  private int healAmount;
 
   /*There is no no-arg constructor. Be careful with your subclass constructors.*/
   
-  public Adventurer(String name){
-      this(name, 10);
+  public Adventurer(String name, int damageAmount, int healAmount){
+      this(name, 10, damageAmount, healAmount);
   }
 
-  public Adventurer(String name, int hp){
+  public Adventurer(String name, int hp, int damageAmount, int healAmount){
       this.name = name;
       this.HP = hp;
       this.maxHP = hp;
+      this.damageAmount = damageAmount;
+      this.healAmount = healAmount;
   }
 
+
+  public int getDamageAmount() {
+      return damageAmount;
+  }
+
+  public int getHealAmount() {
+      return healAmount;
+  }
   //concrete method written using abstract methods.
   //refill special resource by amount, but only up to at most getSpecialMax()
   public int restoreSpecial(int n){
@@ -49,10 +58,10 @@ public abstract class Adventurer{
   //hurt or hinder the target adventurer
   public abstract String attack(Adventurer other);
 
-  //heall or buff the target adventurer
+  //heal or buff the target adventurer
   public abstract String support(Adventurer other);
 
-  //heall or buff self
+  //heal or buff self
   public abstract String support();
 
   //hurt or hinder the target adventurer, consume some special resource
@@ -65,6 +74,9 @@ public abstract class Adventurer{
     this.HP -= amount;
   }
 
+  public void applyHeal(int amount) {
+      this.HP += amount;
+  }
   
 
   //toString method
