@@ -14,15 +14,16 @@ public class Driver{
 		if(inp.nextLine().equals("n")){return;}
 		clearScreen();
 		format();
-		System.out.prinln("Choose: \n 1 - von");
+		System.out.println("Choose: \n 1 - von");
 		String selection = inp.nextLine();
+		ArrayList<Adventurer> ppl = new ArrayList<Adventurer>();
 		if(selection.equals("1")){
 			KingVon player = new KingVon("Von");
-		}else{
-			Adventurer player = new Adventurer("default");
+			ppl.add(player);
+		} else{
+			Adventurer player = new ODweller("default");
+			ppl.add(player);
 		}
-		arrayList<String> ppl = new ArrayList<String>();
-		ppl.add(player);
 
 
 		while(true){
@@ -49,11 +50,11 @@ public class Driver{
 			System.out.println();
 		}
 	}
-	public static void clearScreen() {  
-		System.out.print("\033[H\033[2J");  
-		System.out.flush();  
+	public static void clearScreen() {
+		System.out.print("\033[H\033[2J");
+		System.out.flush();
 	}
-	public static ArrayList<String> getppl(){
+	public ArrayList<Object> getppl(){
 		return ppl;
 	}
 }

@@ -7,7 +7,10 @@ public abstract class Adventurer{
   private int healAmount;
 
   /*There is no no-arg constructor. Be careful with your subclass constructors.*/
-  
+  public Adventurer(String name) {
+    this.name = name;
+  }
+
   public Adventurer(String name, int damageAmount, int healAmount){
       this(name, 10, damageAmount, healAmount);
   }
